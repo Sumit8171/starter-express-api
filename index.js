@@ -1,12 +1,8 @@
+add some more feature in the following code
 const express = require('express')
 const app = express()
-
-app.get('/', (req, res) => {
-  res.send('Hello from the homepage!')
+app.all('/', (req, res) => {
+    console.log("Just got a request!")
+    res.send('Yo!')
 })
-
-app.get('/about', (req, res) => {
-  res.send('This is the about page.')
-})
-
 app.listen(process.env.PORT || 3000)
