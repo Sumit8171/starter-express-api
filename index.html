@@ -1,0 +1,27 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Hello World</title>
+</head>
+<body>
+    <button id="helloButton">Say Hello</button>
+    <p id="helloMessage"></p>
+
+    <script>
+        const helloButton = document.getElementById('helloButton');
+        const helloMessage = document.getElementById('helloMessage');
+
+        helloButton.addEventListener('click', () => {
+            // Make a request to the server when the button is clicked
+            fetch('/sayHello')
+                .then(response => response.json())
+                .then(data => {
+                    helloMessage.innerText = data.message;
+                });
+        });
+    </script>
+</body>
+</html>
